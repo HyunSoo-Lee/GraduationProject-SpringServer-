@@ -37,7 +37,7 @@ public class SleepTimeController {
         return ResponseEntity.status(HttpStatus.OK).body(new SuccessResponse(200, sleepTime));
     }
 
-    //수면시간 삭제하기
+    //수면시간 삭제
     @DeleteMapping("/delete/sleepTimeId/{sleepTimeId}")
     public ResponseEntity deleteSleepTime(@PathVariable Long sleepTimeId){
 
