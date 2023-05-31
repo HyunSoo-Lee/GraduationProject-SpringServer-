@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 public class SleepTime {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sleepT_id")
     private Long id;
 
@@ -19,8 +19,7 @@ public class SleepTime {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "user_babyName")
-    private String user_baby;
+    private String baby_name;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startT;
@@ -32,10 +31,10 @@ public class SleepTime {
         this.user = user;
     }
 
-    public static SleepTime createSleepTime(User user, String user_baby, LocalDateTime startT, LocalDateTime endT, int turn_cnt){
+    public static SleepTime createSleepTime(User user, String baby_name, LocalDateTime startT, LocalDateTime endT, int turn_cnt){
         SleepTime sleepTime = new SleepTime();
         sleepTime.setUser(user);
-        sleepTime.setUser_baby(user_baby);
+        sleepTime.setBaby_name(baby_name);
         sleepTime.setStartT(startT);
         sleepTime.setEndT(endT);
         sleepTime.setTurn_cnt(turn_cnt);
